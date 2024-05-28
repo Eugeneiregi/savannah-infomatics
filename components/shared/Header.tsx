@@ -18,6 +18,7 @@ const Header = () => {
                             className="rounded-full"
                             alt="Savannah Logo"
                         />
+                        
                     </Link>
                     <span className="text-base">Savannah <br /> informatics</span>
                 </div>
