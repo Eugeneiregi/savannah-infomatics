@@ -1,8 +1,13 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "../ui/button"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Header = () => {
+    const { data: session } = useSession();
+
     return (
         <header className="w-full border-b">
             <div className="wrapper flex items-center justify-between">
@@ -17,11 +22,12 @@ const Header = () => {
                     <span className="text-base">Savannah <br /> informatics</span>
                 </div>
                 <div className="flex w-32 justify-end gap-3">
-                    <Button className="rounded-full bg-black" size="lg">
-                        <Link href="/login">
-                            Login
-                        </Link>
-                    </Button>
+                    {session ? <Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>Sign Out</Button> :
+                        <Button className="rounded-full bg-black px-10 py-4" size="lg">
+                            <Link href="/login">
+                                Login
+                            </Link>
+                        </Button>}
                 </div>
             </div>
         </header>
