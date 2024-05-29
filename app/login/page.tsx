@@ -1,19 +1,7 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
-
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-
+import { Toaster } from "@/components/ui/sonner"
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -51,6 +39,7 @@ const Login = () => {
 
     return (
         <div className="flex justify-center items-center h-screen">
+             {!session && <Toaster />}
             <div className="w-full max-w-md">
                 <div className="px-4 text-5xl text-bold text-center justify-center">Welcome !!! </div>
                 {/* <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={submitHandler}>
@@ -95,7 +84,7 @@ const Login = () => {
                     </div>
                 </form> */}
                 <div className="text-center space-x-2">
-                    <p>Or sign in with</p>
+                    <p>Sign in with...</p>
                     <div className="px-10 py-5 flex flex-col items-center space-y-4">
                         <Button
                             className="bg-slate-900 hover:bg-black flex items-center space-x-2 px-9 py-5"
