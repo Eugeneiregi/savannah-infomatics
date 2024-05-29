@@ -2,6 +2,17 @@
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
@@ -42,7 +53,7 @@ const Login = () => {
         <div className="flex justify-center items-center h-screen">
             <div className="w-full max-w-md">
                 <div className="px-4 text-5xl text-bold text-center justify-center">Welcome !!! </div>
-                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={submitHandler}>
+                {/* <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={submitHandler}>
                     <div className="mb-6">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                             Email Address
@@ -75,14 +86,14 @@ const Login = () => {
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="submit"
                         >
-                            <Link href="/"> Sign In</Link>
+                            <Link href="/"> This option is not implemented</Link>
 
                         </Button>
                         <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                             Forgot Password?
                         </a>
                     </div>
-                </form>
+                </form> */}
                 <div className="text-center space-x-2">
                     <p>Or sign in with</p>
                     <div className="px-10 py-5 flex flex-col items-center space-y-4">

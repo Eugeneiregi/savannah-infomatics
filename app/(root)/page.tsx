@@ -19,7 +19,7 @@ export default function Home() {
               <Link href="/users">
                 Explore Now
               </Link>
-            </Button> : <Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>You Cannot See Beyond here</Button>}
+            </Button> : <Button className="rounded-full bg-black" onClick={() => signOut()}>PLease Sign here</Button>}
           </div>
 
           <Image 
