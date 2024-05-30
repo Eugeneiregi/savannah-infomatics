@@ -19,7 +19,10 @@ export default function Home() {
               <Link href="/users">
                 Explore Now
               </Link>
-            </Button> : <Button className="rounded-full bg-black" onClick={() => signOut()}>PLease Sign here</Button>}
+            </Button> : <Button className="rounded-full bg-black">
+              
+                <Link href="/login">PLease login to continue</Link>
+              </Button>}
           </div>
 
           <Image 
