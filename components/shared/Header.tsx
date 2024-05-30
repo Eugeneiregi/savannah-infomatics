@@ -1,5 +1,13 @@
 "use client"
 
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu";  
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "../ui/button"
@@ -32,7 +40,23 @@ const Header = () => {
                 </div>
                 <div className="flex w-32 justify-end gap-3">
                     {session ? (
+                        <>
+                        <DropdownMenu>
+                        <DropdownMenuTrigger>
+                            <Button className="rounded-full bg-black px-10 py-4">My Account</Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem><Link href="/profile">Profile</Link></DropdownMenuItem>
+                          <DropdownMenuItem><Link href="/">Home</Link></DropdownMenuItem>
+                          <DropdownMenuItem>Settings</DropdownMenuItem>
+                          <DropdownMenuItem><Button className="rounded bg-black hover:bg-red" onClick={() => signOut()}>Sign Out</Button></DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                      
                         <Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>Sign Out</Button>
+                        </>
                     ) : (
                         <Button className="rounded-full bg-black px-10 py-4" size="lg">
                             <Link href="/login">
