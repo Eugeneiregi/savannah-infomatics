@@ -19,7 +19,7 @@ export default function Home() {
           {session ? 
             <Button size="lg" asChild className="button w-full sm:w-fit bg-black">
               <Link href="/users">
-                Explore Now
+                Check out the Albums
               </Link>
             </Button> : <Button className="rounded-full bg-black">
               
