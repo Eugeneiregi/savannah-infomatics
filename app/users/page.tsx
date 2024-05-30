@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from 'axios';
 import Footer from "@/components/shared/Footer";
+import NotFound from "@/components/shared/NotFound";
 
 interface User {
     id: number;
@@ -50,9 +51,10 @@ const UsersPage: React.FC = () => {
 
     return (
         <>
+         <Header />
             {session ? (
                 <>
-                    <Header />
+                   
                     <div className="text-center justify-center p-10">
                         <h1 className="text-5xl text-black font-bold">
                             Welcome back, {session.user?.name}!!!
@@ -68,11 +70,10 @@ const UsersPage: React.FC = () => {
                 </>
             ) : (
                 <>
-                    <h1 className="text-4xl text-black font-bold">
-                        You're not logged in
-                    </h1>
+                
                 </>
             )}
+            {session ? 
             <section className="p-10 bg-primary-50 bg-dotted-pattern bg-contain">
                 <h2 className="text-2xl font-bold mb-4">Users and their Albums</h2>
                 {loading ? (
@@ -101,7 +102,7 @@ const UsersPage: React.FC = () => {
                         ))}
                     </div>
                 )}
-            </section>
+            </section> : <NotFound />}
             <Footer />
         </>
     );

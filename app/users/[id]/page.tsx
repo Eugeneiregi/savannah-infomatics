@@ -8,14 +8,18 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/table"
+  } from "@/components/ui/table";
+import { useSession, signIn, signOut } from "next-auth/react"
+
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from "next/navigation";
 import axios from 'axios';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
+import NotFound from "@/components/shared/NotFound";
 
 const UserData: React.FC = () => {
+    const { data: session } = useSession();
     const { id } = useParams();
     const [user, setUser] = useState<any>(null); // Adjust type as per your data structure
     const [albums, setAlbums] = useState<any[]>([]); // Adjust type as per your data structure
@@ -43,6 +47,7 @@ const UserData: React.FC = () => {
     return (
         <>
             <Header />
+            {session ? 
             <div className="bg-primary-50 bg-dotted-pattern bg-contain flex items-center justify-center min-h-screen">
             <div className="w-full max-w-4xl p-6 bg-gray-100 rounded-lg shadow-lg">
                 <Table>
@@ -65,7 +70,7 @@ const UserData: React.FC = () => {
                     </TableBody>
                 </Table>
             </div>
-        </div>
+        </div> : <NotFound />}
             <Footer />
         </>
 

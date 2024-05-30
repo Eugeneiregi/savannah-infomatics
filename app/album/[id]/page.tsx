@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-
+import { useSession, signIn, signOut } from "next-auth/react"
 import { useParams, useRouter } from 'next/navigation'; 
 import axios from 'axios';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
+import NotFound from '@/components/shared/NotFound';
 
 interface Album {
     userId: number;
@@ -22,6 +23,8 @@ interface Photo {
 }
 
 const albumpage = () => {
+    const { data: session } = useSession();
+
     const [album, setAlbum] = useState<Album | null>(null);
     const [photos, setPhotos] = useState<Photo[]>([]);
     const { id } = useParams();
@@ -49,6 +52,7 @@ const albumpage = () => {
     return (
         <>
             <Header />
+            {session ? 
             <div className="p-4">
                 {loading ? (
                     <div>Loading...</div>
@@ -69,7 +73,7 @@ const albumpage = () => {
                         </div>
                     </>
                 )}
-            </div>
+            </div> : <NotFound />}
             <Footer />
         </>
     );
