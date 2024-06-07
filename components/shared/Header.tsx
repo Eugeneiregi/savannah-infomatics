@@ -51,11 +51,11 @@ const Header = () => {
                           <DropdownMenuItem><Link href="/profile">Profile</Link></DropdownMenuItem>
                           <DropdownMenuItem><Link href="/">Home</Link></DropdownMenuItem>
                           <DropdownMenuItem>Settings</DropdownMenuItem>
-                          <DropdownMenuItem><Button className="rounded bg-black hover:bg-red" onClick={() => signOut()}>Sign Out</Button></DropdownMenuItem>
+                          <DropdownMenuItem><Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>Sign Out</Button></DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                       
-                        <Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>Sign Out</Button>
+                        {/* <Button className="rounded-full bg-black px-10 py-4" onClick={() => signOut()}>Sign Out</Button> */}
                         </>
                     ) : (
                         <Button className="rounded-full bg-black px-10 py-4" size="lg">
