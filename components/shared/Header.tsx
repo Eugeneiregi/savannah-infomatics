@@ -17,6 +17,9 @@ import { useEffect } from "react"
 
 const Header = () => {
     const { data: session } = useSession();
+    const user = session?.user;
+    const defaultImage = "https://source.unsplash.com/150x150/?portrait?3";
+
     // const router = useRouter();
 
     // useEffect(() => {
@@ -43,7 +46,12 @@ const Header = () => {
                         <>
                         <DropdownMenu>
                         <DropdownMenuTrigger>
-                            <Button className="rounded-full bg-black px-10 py-4">My Account</Button>
+                            {/* <Button className="rounded-full bg-black px-10 py-4">My Account</Button> */}
+                            <img 
+                                src={user?.image || defaultImage} 
+                                alt="User image" 
+                                className="w-10 h-10 mx-auto rounded-full dark:bg-gray-500" 
+                            />
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                           <DropdownMenuLabel>My Account</DropdownMenuLabel>
