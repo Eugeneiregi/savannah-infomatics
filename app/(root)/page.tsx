@@ -28,11 +28,11 @@ export default function Home() {
           </div>
 
           <Image 
-            src="/assets/album.jpg"
+            src="/assets/savannah-1.jpg"
             alt="album"
             width={1000}
             height={1000}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
+            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh] rounded-lg"
           />
         </div>
       </section>
