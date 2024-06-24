@@ -12,7 +12,7 @@ const Login = () => {
     const { data: session } = useSession();
     const [isAuthenticating, setIsAuthenticating] = useState(false);
 
-    const showToast = (message: Renderable | ValueFunction<Renderable, Toast>) => toast(message, {
+    const showToast = (message: string, type: 'success' | 'error' = 'success') => toast[type](message, {
         duration: 3000, // 3 seconds
     });
 
@@ -25,12 +25,8 @@ const Login = () => {
 
             console.log(data);
 
-            // Wait for 3 seconds before redirecting
-            setTimeout(() => {
                 setIsAuthenticating(false);
-                showToast(`Logged in successfully via ${provider}!`);
-                router.push('/');
-            }, 3000);
+            
         } catch (error) {
             console.error(error);
             setIsAuthenticating(false);
@@ -41,7 +37,7 @@ const Login = () => {
     useEffect(() => {
         
         if (session) {
-            showToast(`Thank You For Signing`);
+            showToast("Thank You For Signing", 'success');
             router.push('/');
         }
     }, [session, router]);
